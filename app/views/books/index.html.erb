@@ -1,25 +1,19 @@
 <h1>Book Listings</h1>
 <table>
-    <thead>
-        <tr>
-            <th>
-                Title
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Action
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @books.each do |book| %> 
-        <tr>
-            <td><%= book.title %></td>
-            <td><%= book.description %></td>
-            <td>placeholder</td>
-        </tr>
-        <% end %>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.description %></td>
+      <td>placeholder</td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
