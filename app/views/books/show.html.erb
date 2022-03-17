@@ -2,3 +2,6 @@
 
 <p><strong>Title: </strong> <%= @book.title %></p>
 <p><strong>Description: </strong> <%= @book.description %></p>
+
+
+<%= link_to "Go back to index page", books_path %> | <%= link_to "Edit", edit_book_path(@book) %> 

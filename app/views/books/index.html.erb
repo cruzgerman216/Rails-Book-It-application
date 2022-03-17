@@ -13,8 +13,10 @@
     <tr>
       <td><%= book.title %></td>
       <td><%= book.description %></td>
-      <td><%= link_to "Delete", book_path(book), method: :delete %></td>
+      <td><%= link_to "Show", book_path(book)%> | <%= link_to "Edit", edit_book_path(book) %> <%= link_to "Delete", book_path(book), method: :delete %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "Create a book", new_book_path %> 
