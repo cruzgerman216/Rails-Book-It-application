@@ -1,11 +1,13 @@
-<% if @book.errors.any? %> 
-    <% @book.errors.full_messages.each do |message| %> 
-        <p><%= message %></p>
-    <% end %>
-<% end %>
 
-<%= form_with(model: @book) do |form| %>
-    <p><%= form.label :title %> <%= form.text_field :title%></p>
-    <p><%= form.label :description %> <%= form.text_area :description%></p>
-    <%= form.submit "Save Book" %>
+<div style="margin: 0 25%; width: 50%">
+    <%= render "errors" %>
+    <%= form_with(model: @book) do |form| %>
+    <%= form.label :title, class: "form-label" %>
+     <%= form.text_field :title, class: "form-control"%>
+    <%= form.label :description, class: "form-label" %> 
+    <%= form.text_area :description, class: "form-control"%>
+    <%= form.label :image_path, class: "form-label" %> 
+    <%= form.text_area :image_path, class: "form-control"%>
+    <%= form.submit "Save Book", class: "btn btn-primary" %>
 <% end %>
+</div>

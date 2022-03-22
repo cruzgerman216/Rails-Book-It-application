@@ -6,7 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-(1..10).each do |i| 
-    Book.create(title: "Title #{i}", description: "description #{i}")
+images = [
+  "https://m.media-amazon.com/images/I/51DZeZw7K0L.jpg",
+  "https://m.media-amazon.com/images/M/MV5BZDViYmQ0YjUtNjJiZC00NDAxLWEwOTctYjhhYTcyYTk2NzFhXkEyXkFqcGdeQXVyMTMxMTY0OTQ@._V1_.jpg",
+  "https://images-na.ssl-images-amazon.com/images/I/51uDbir0FNL._SX318_BO1,204,203,200_.jpg",
+  "https://images-na.ssl-images-amazon.com/images/I/81NuITyKhiL.jpg",
+]
+(1..50).each do
+  Book.create(title: Faker::Book.title, description: Faker::Lorem.paragraph(sentence_count: 2), image_path: images[Random.rand(images.length)])
 end

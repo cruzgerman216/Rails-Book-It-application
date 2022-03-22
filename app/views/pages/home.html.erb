@@ -1,3 +1,29 @@
-<h1>Home</h1>
+<div class="home-background">
+    <div class="home-header">
+        Discover a New Journey
+    </div>
+    <div class="home-paragraph">
+        The Book It aplication allows users to create, update and delete books. Sign up now!
+    </div>
 
-<%= link_to "Book listings", books_path %> 
+    <%= link_to "Sign up", "/signup", class: "home-button btn btn-success" %>
+    <%= link_to "Explore", books_path, class: "home-button explore text-center link" %>
+</div>
+
+
+<section class="library container">
+    <h1 class="text-center">Featured Books</h1>
+        <div class="row">
+            <% eight_random_books.each do |book| %>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <%= image_tag book.image_path, class: "card-img-top" %> 
+                    <div class="card-body">
+                      <h5 class="card-title"><%= book.title %></h5>
+                      <p class="card-text"><%= book.description %></p>
+                    </div>
+                  </div>
+            </div>
+            <% end %>
+        </div>
+</section>
