@@ -1,6 +1,6 @@
 
 <div style="margin: 0 25%; width: 50%">
-    <%= render "errors" %>
+    <%= render "shared/errors", obj: @book %>
     <%= form_with(model: @book) do |form| %>
     <%= form.label :title, class: "form-label" %>
      <%= form.text_field :title, class: "form-control"%>
@@ -8,6 +8,6 @@
     <%= form.text_area :description, class: "form-control"%>
     <%= form.label :image_path, class: "form-label" %> 
     <%= form.text_area :image_path, class: "form-control"%>
-    <%= form.submit "Save Book", class: "btn btn-primary" %>
+    <%= form.submit @book.new_record? ? "Create book" : "Update book", class: "btn btn-primary" %>
 <% end %>
 </div>

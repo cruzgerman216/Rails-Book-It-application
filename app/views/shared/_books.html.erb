@@ -1,0 +1,21 @@
+<section class="library container">
+    <div class="row">
+        <% books.each do |book| %> 
+        <div class="col-md-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+            <%= book.user.username if book.user%> 
+            </div>
+              <%= image_tag book.image_path, class: "card-img-top" %>
+              <div class="card-body">
+                <h5 class="card-title"><%= book.title %></h5>
+                <p class="card-text"><%= book.description %></p>
+                <%= link_to "Show", book_path(book), class: "btn btn-outline-primary" %>
+                <%= link_to "Edit", edit_book_path(book), class: "btn btn-outline-secondary" %>
+                <%= link_to "Delete", book_path(book), method: :delete, class: "btn btn-outline-danger" %>
+              </div>
+            </div>
+      </div>
+        <% end %>
+    </div>
+</section>

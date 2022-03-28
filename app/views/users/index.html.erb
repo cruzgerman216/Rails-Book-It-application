@@ -1,0 +1,24 @@
+<h1 class="text-center">User Index</h1>
+
+<div class="container text-center">
+    <div class="row">
+        <% @users.each do |user| %> 
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <%= user.username%>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <%= user.books.count %>
+                    </div>
+                    <div>
+                        <%= link_to "edit", edit_user_path(user), class: "btn btn-outline-success" %> 
+                        <%= link_to "show", user_path(user), class: "btn btn-outline-secondary" %> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>

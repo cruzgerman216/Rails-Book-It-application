@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_21_232307) do
+ActiveRecord::Schema.define(version: 2022_03_28_230310) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2022_03_21_232307) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
     t.string "image_path", default: "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
 end

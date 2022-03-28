@@ -1,0 +1,12 @@
+<div style="margin: 0 25%; width: 50%">
+    <%= render "shared/errors", obj: @user %>
+    <%= form_with(model: @user) do |form| %>
+        <%= form.label :username, class: "form-label" %>
+         <%= form.text_field :username, class: "form-control"%>
+         <%= form.label :email, class: "form-label" %>
+         <%= form.text_field :email, class: "form-control"%>
+         <%= form.label :password, class: "form-label" %>
+         <%= form.text_field :password, class: "form-control"%>
+        <%= form.submit @user.new_record? ? "Create Account" : "Update Account", class: "btn btn-primary" %>
+    <% end %>
+    </div>
