@@ -20,5 +20,5 @@ users = [
 
 ]
 (1..50).each do
-  User.all[users.count].Book.create(title: Faker::Book.title, description: Faker::Lorem.paragraph(sentence_count: 2), image_path: images[Random.rand(images.length)])
+  users[Random.rand(users.count)].Book.create(title: Faker::Book.title, description: Faker::Lorem.paragraph(sentence_count: 2), image_path: images[Random.rand(images.length)])
 end
