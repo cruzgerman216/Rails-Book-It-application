@@ -15,7 +15,7 @@ images = [
 
 users = [
   User.create(username: "johndoe123", email: "johndoe123@google.com", password: "password"),
-  User.create(username: "jimmyjohns456", email: "jimmyjohns456@google.com", password: "password")
+  User.create(username: "jimmyjohns456", email: "jimmyjohns456@google.com", password: "password"),
   User.create(username: "adminperson24", email: "admin@admin.com", password: "password")
 
 ]
