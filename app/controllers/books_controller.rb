@@ -1,6 +1,7 @@
 class BooksController < ApplicationController 
     before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+    before_action :require_user, except: [:index, :show]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
     def index 
         @books = Book.all
     end
@@ -14,7 +15,7 @@ class BooksController < ApplicationController
 
     def create 
         @book = Book.new(book_params)
-        @book.user = User.first
+        @book.user = helpers.current_user
         
         if @book.save  
             flash[:notice] = "Book was saved!"

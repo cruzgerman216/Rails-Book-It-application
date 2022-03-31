@@ -15,9 +15,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        <li class="nav-item">
-          <%= link_to 'User Index', users_path, class: "nav-link" %>
-        </li>
+
+
+        <% if logged_in? %> 
+
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
@@ -27,11 +28,36 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Dropdown
+            <%= "(admin)" if current_user.admin? %> <%= current_user.username %>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'User Index', users_path, class: "dropdown-item" %>
+            <%= link_to 'Edit Profile', edit_user_path(current_user), class: "dropdown-item" %>
+            <%= link_to 'Logout', logout_path, method: :delete, class: "dropdown-item" %>
+          </ul>
+        </li>
+          <% else %> 
+        <li class="nav-item">
+           
+          <%= link_to 'Login', login_path, class: "nav-link" %> 
+        </li>
+        <% end %>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Books
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Books listing", books_path, class: "dropdown-item" %> 
-            <%= link_to "Create a book", new_book_path, class: "dropdown-item" %>
+            <% if logged_in? %> 
+              <%= link_to "Create a book", new_book_path, class: "dropdown-item" %>
+            <% end %>
           </ul>
         </li>
       </ul>
