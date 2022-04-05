@@ -1,6 +1,10 @@
 class Book < ApplicationRecord
   belongs_to :user
-  
+
+  has_many :book_categories
+  has_many :categories, through: :book_categories 
+
+
   validates :title, presence: true, length: { minimum: 2, maximum: 100 }
   validates :description, presence: true, length: { minimum: 6, maximum: 200 }
 
@@ -16,3 +20,5 @@ class Book < ApplicationRecord
     end
   end
 end
+
+

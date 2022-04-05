@@ -1,0 +1,9 @@
+
+<div style="margin: 0 25%; width: 50%">
+    <%= render "shared/errors", obj: @category %>
+    <%= form_with(model: @category) do |form| %>
+    <%= form.label :name, class: "form-label" %> 
+    <%= form.text_field :name, class: "form-control"%>
+    <%= form.submit @category.new_record? ? "Create category" : "Update category", class: "btn btn-primary" %>
+<% end %>
+</div>

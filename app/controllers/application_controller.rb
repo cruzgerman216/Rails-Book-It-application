@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
             redirect_to helpers.current_user
         end
     end
+
+    def require_admin 
+
+        if !(helpers.logged_in? && helpers.current_user.admin?)
+            redirect_to categories_path
+        end
+
+    end
 end

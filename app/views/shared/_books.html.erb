@@ -5,6 +5,10 @@
           <div class="card" style="width: 18rem;">
             <div class="card-header">
             <%= book.user.username if book.user%> 
+
+            <% book.categories.each do |category| %>
+              <%= category.name %>
+            <% end %>
             </div>
               <%= image_tag book.image_path, class: "card-img-top" %>
               <div class="card-body">

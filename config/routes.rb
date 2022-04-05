@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "pages#home"
   get 'pages/about'
-
+   
   get 'signup', to: 'users#new'
   
   get 'login', to: 'sessions#new'
@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   
   resources :users
   resources :books
+  resources :categories, except: [:destroy]
+  
 end
